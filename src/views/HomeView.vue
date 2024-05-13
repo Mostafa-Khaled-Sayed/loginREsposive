@@ -45,7 +45,7 @@
                           class="mt-1"
                           style="width: 100%; max-width: 375px;" 
                         ></v-text-field>
-                        <v-btn color="#1ED760" class="mt-1" dark block tile>Login</v-btn>
+                        <v-btn color="#1ED760" class="mt-1 mr-1" dark block tile>Login</v-btn>
                       </v-col>
                     </v-row>
                   </v-card-text>
@@ -95,6 +95,13 @@ h6 {
   line-height: 1.2;
 }
 button {
-  min-width: 354px;
+  min-width: 350px;
 }
+@media only screen and (max-width: 600px) {
+  /* Styles for small screens */
+  button {
+    min-width:200px;
+  }
+}
+
 </style>
