@@ -1,24 +1,37 @@
-import './assets/style.css'
+import './assets/style.css';
 import 'material-icons/iconfont/material-icons.css';
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
 // Vuetify
-import '@mdi/font/css/materialdesignicons.css'
-import 'vuetify/styles'
-import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
+import '@mdi/font/css/materialdesignicons.css';
+import 'vuetify/styles';
+import { createVuetify } from 'vuetify';
+import * as components from 'vuetify/components';
+import * as directives from 'vuetify/directives';
+// import store from './store/store';
+
 const vuetify = createVuetify({
   components,
   directives,
-  icons:{
-    iconFont:'fa'||'md',
-  }
-})
-const app = createApp(App)
+  icons: {
+    iconFont: 'fa' || 'md',
+  },
+});
 
-app.use(router)
+// Create the Vue app
+const app = createApp(App);
 
-app.use(vuetify).mount('#app')
+// Setup router and Vuetify
+app.use(router);
+app.use(vuetify);
+
+// Set initial language and direction
+const savedLanguage = localStorage.getItem('language') || 'en';
+document.documentElement.setAttribute('dir', savedLanguage === 'ar' ? 'rtl' : 'ltr');
+
+// Add a global property for language
+app.config.globalProperties.$currentLanguage = savedLanguage;
+
+app.mount('#app');
