@@ -21,7 +21,8 @@ const store = createStore({
   actions: {
     async login({ commit }, payload) {
       try {
-        const response = await axios.post('http://127.0.0.1:8000/api/login', payload);
+        // http://127.0.0.1:8000
+        const response = await axios.post('https://5af7-154-178-232-135.ngrok-free.app/api/login', payload);
         if (response.status === 200) {
           // Assuming the server returns the token in response.data.token
           const token = response.data.data.accessToken;
@@ -42,7 +43,8 @@ const store = createStore({
     async logout({ commit }) {
       try {
         Cookies.remove('token'); // Remove the token from cookies
-        await axios.post('http://127.0.0.1:8000/api/logout');
+        //http://127.0.0.1:8000
+        await axios.post('https://5af7-154-178-232-135.ngrok-free.app/api/logout');
         commit('setAuthenticated', false);
         commit('clearError');
       } catch (error) {
