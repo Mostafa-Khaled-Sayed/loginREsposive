@@ -3,6 +3,9 @@ import 'material-icons/iconfont/material-icons.css';
 
 import { createApp } from 'vue';
 import App from './App.vue';
+import store from './store/index.js'; // Import your Vuex store
+import axios from 'axios';
+
 import router from './router';
 // Vuetify
 import '@mdi/font/css/materialdesignicons.css';
@@ -24,8 +27,10 @@ const vuetify = createVuetify({
 const app = createApp(App);
 
 // Setup router and Vuetify
-app.use(router);
+app.use(store);
 app.use(vuetify);
+
+app.use(router);
 
 // Set initial language and direction
 const savedLanguage = localStorage.getItem('language') || 'en';
