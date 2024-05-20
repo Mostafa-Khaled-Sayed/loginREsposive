@@ -86,7 +86,7 @@
                     class="mt-1"
                     style="width: 100%; max-width: 375px"
                   ></v-text-field>
-                  <v-alert v-if="state.error" type="error" class="w-[375px] mt-6 mb-6" close-icon
+                  <v-alert v-if="state.error" type="error" class="max-w-[370px] mt-6 mb-6" close-icon
                   outlined>
                     {{ currentLanguage === 'en' ? 'Username or password is incorrect. Please contact your enterprise\'s administrator if it continues.' : 'اسم المستخدم أو كلمة المرور غير صحيحة. يرجى الاتصال بمسؤول مؤسستك إذا استمر الأمر'}}
                   </v-alert>
